@@ -33,9 +33,43 @@ class graph{
     return count;
   }
 
+  public int highestDegree(){
+    int highest = 0;
 
+    for(int i=0; i<this.adjMatrix.length; i++){
+      int degree = this.degree(i);
+      if(degree(i)>highest){
+        highest=degree;
+      }
+    }
+    return highest;
+  }
 
-  
+  public int lowestDegree(){
+    int lowest = this.adjMatrix.length;
+
+    for(int i=1; i<this.adjMatrix.length; i++){
+      int degree = this.degree(i);
+      if(degree(i)<lowest){
+        lowest=degree;
+      }
+    }
+    return lowest;
+  }
+
+  public graph complement(){
+    graph g2 = new graph(this.countNodes);
+
+    for(int i=0; i<this.adjMatrix.length; i++){
+      for(int j=0; j<this.adjMatrix.length; j++){
+        if(this.adjMatrix[i][j] == 0 && i!=j){
+          g2.addEdge(i, j, 1);
+        }
+      }
+    }
+    return g2;
+  }
+
 
   public int getcountNodes(){
     return this.countNodes;
