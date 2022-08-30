@@ -181,6 +181,38 @@ class graph{
     return r;
   }
 
+  public void dfs_recAux(int u, int[] desc, ArrayList<Integer> r){
+    desc[u] = 1;
+    r.add(u);
+    for(int v=0; v<this.adjMatrix[u].length; v++){
+      if(this.adjMatrix[u][v] != 0 && desc[v] == 0){
+        dfs_recAux(v, desc, r);
+      }
+    }
+  }
+
+  public ArrayList<Integer> dfs_rec(int s){
+
+    int[] desc = new int[this.countNodes];
+    ArrayList<Integer> r = new ArrayList<>();
+    dfs_recAux(s, desc, r);
+
+    return r;
+
+
+  }
+
+  public boolean unoriented(){
+    for(int i=0; i<this.adjMatrix.length; i++){
+      for(int j=i+1; j<this.adjMatrix[i].length; j++){
+        if(this.adjMatrix[i][j] != this.adjMatrix[j][i]){
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
 
   public boolean connected(){
     return this.busca_largura(0).size() == this.countNodes;
@@ -211,7 +243,5 @@ class graph{
 }
 
 /*
-Grafo de estados (velha, xadrez)
-Nó = Estado
-
+29/08
 */

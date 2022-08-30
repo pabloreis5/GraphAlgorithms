@@ -1,6 +1,8 @@
+import java.io.IOException;
+
 class Main {
   
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException{
     graph g1 = new graph(9);
     g1.addEdgeUnoriented(7, 5, 1);
     g1.addEdgeUnoriented(7, 1, 1);
@@ -13,6 +15,9 @@ class Main {
 
     System.out.println(g1.busca_largura(7));
     System.out.println(g1.connected());
+
+    graph g2 = new graph("graph1.txt");
+    System.out.println(g2);
 
 
 
