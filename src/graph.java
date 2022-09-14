@@ -150,7 +150,6 @@ class graph{
     }
     return r;
   }
-
   public ArrayList<Integer> busca_prof(int s){
     int[] desc = new int[this.countNodes];
     
@@ -180,7 +179,6 @@ class graph{
     }
     return r;
   }
-
   public void dfs_recAux(int u, int[] desc, ArrayList<Integer> r){
     desc[u] = 1;
     r.add(u);
@@ -190,7 +188,6 @@ class graph{
       }
     }
   }
-
   public ArrayList<Integer> dfs_rec(int s){
 
     int[] desc = new int[this.countNodes];
@@ -212,11 +209,42 @@ class graph{
     }
     return true;
   }
-
-
   public boolean connected(){
     return this.busca_largura(0).size() == this.countNodes;
   }
+
+  public void floyd_warshall(){
+    int[][] dist = new int[countNodes][countNodes];
+    int[][] pred = new int[countNodes][countNodes];
+
+    for(int i=0; i<this.adjMatrix.length; i++){
+      for(int j=0; j<this.adjMatrix[i].length; j++){
+        if(i==j){
+          dist[i][j] = 0;
+        } else if(this.adjMatrix[i][j] != 0){
+          dist[i][j] = this.adjMatrix[i][j];
+          pred[i][j] = i;
+        }
+        else{
+          dist[i][j] = 9000000;
+          pred[i][j] = i;
+        }
+      }
+    }
+    /*for(int k=0; k < )*/
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   public int getcountNodes(){
