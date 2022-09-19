@@ -231,7 +231,9 @@ class graph{
         }
       }
     }
-    /*for(int k=0; k < )*/
+    for(int k=0; k < this.adjMatrix.length; k++ ){
+      
+    }
   }
 
 
