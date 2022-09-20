@@ -195,10 +195,7 @@ class graph{
     dfs_recAux(s, desc, r);
 
     return r;
-
-
   }
-
   public boolean unoriented(){
     for(int i=0; i<this.adjMatrix.length; i++){
       for(int j=i+1; j<this.adjMatrix[i].length; j++){
@@ -221,19 +218,19 @@ class graph{
       for(int j=0; j<this.adjMatrix[i].length; j++){
         if(i==j){
           dist[i][j] = 0;
-        } else if(this.adjMatrix[i][j] != 0){
+          pred[i][j] = -1;
+        }else if(this.adjMatrix[i][j] != 0){
           dist[i][j] = this.adjMatrix[i][j];
           pred[i][j] = i;
-        }
-        else{
+        }else{
           dist[i][j] = 9000000;
-          pred[i][j] = i;
+          pred[i][j] = -1;
         }
       }
     }
-    for(int k=0; k < this.adjMatrix.length; k++ ){
-      
-    }
+
+
+    
   }
 
 
