@@ -5,4 +5,4 @@ de realizar operações em Grafos.
 
 ### ALUNO:
 
-Pablo Batista de A. Reis
+Pablo Batista de A. Reiss
