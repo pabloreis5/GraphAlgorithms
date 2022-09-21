@@ -4,17 +4,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-class graph{
+class graphMatrix{
   private int countNodes;
   private int countEdges;
   private int[][] adjMatrix;
 
-  public graph(int countNodes){
+  public graphMatrix(int countNodes){
     this.countNodes = countNodes;
     this.adjMatrix = new int[countNodes][countNodes]; 
   }
   
-  public graph(String fileName) throws IOException {
+  public graphMatrix(String fileName) throws IOException {
     File file = new File(fileName);
     FileReader reader = new FileReader(file);
     BufferedReader bufferedReader = new BufferedReader(reader);
@@ -97,8 +97,8 @@ class graph{
     return lowest;
   }
 
-  public graph complement(){
-    graph g2 = new graph(this.countNodes);
+  public graphMatrix complement(){
+    graphMatrix g2 = new graphMatrix(this.countNodes);
 
     for(int i=0; i<this.adjMatrix.length; i++){
       for(int j=0; j<this.adjMatrix.length; j++){
@@ -113,7 +113,7 @@ class graph{
     return (float) this.countEdges / (this.countNodes * (this.countNodes - 1));
   }
 
-  public boolean subGraph(graph g2) {
+  public boolean subGraph(graphMatrix g2) {
     if (g2.countNodes > this.countNodes || g2.countEdges > this.countEdges)
       return false;
     for(int i = 0; i < g2.adjMatrix.length; ++i) {
